@@ -41,22 +41,15 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://moddingstation.com",
     siteName: "ModdingStation",
-    title: "ModdingStation - Precision Cheats. Premium Protection.",
+    title: "ModdingStation - Premium Gaming Software",
     description:
-      "Private software collective delivering high-end, undetected game enhancements. 20,000+ users worldwide • 99% undetected • 24/7 support",
+      "🎮 Undetected Game Enhancements | 20,000+ Users Worldwide | 99% Success Rate | 24/7 Support | Valorant • Rust • FiveM • HWID Spoofer",
     images: [
       {
-        url: "/images/favicon-source.png",
+        url: "/images/discord-embed.png",
         width: 1200,
         height: 630,
-        alt: "ModStation - Premium Gaming Software",
-        type: "image/png",
-      },
-      {
-        url: "/images/hero-background.png",
-        width: 1200,
-        height: 630,
-        alt: "ModStation Gaming Platform",
+        alt: "ModdingStation - Premium Gaming Software",
         type: "image/png",
       },
     ],
@@ -65,9 +58,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@ModStation",
     creator: "@ModdingStation",
-    title: "ModdingStation - Precision Cheats. Premium Protection.",
-    description:
-      "Private software collective delivering high-end, undetected game enhancements. 20,000+ users worldwide • 99% undetected • 24/7 support",
+    title: "ModdingStation - Premium Gaming Software",
+    description: "🎮 Undetected Game Enhancements | 20,000+ Users | 99% Success Rate | 24/7 Support",
     images: ["/images/favicon-source.png"],
   },
   icons: {
@@ -110,7 +102,6 @@ export const metadata: Metadata = {
     "msapplication-TileColor": "#0F0F23",
     "msapplication-config": "/browserconfig.xml",
   },
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({

@@ -46,7 +46,7 @@ export const metadata: Metadata = {
       "🎮 Undetected Game Enhancements | 20,000+ Users Worldwide | 99% Success Rate | 24/7 Support | Valorant • Rust • FiveM • HWID Spoofer",
     images: [
       {
-        url: "/images/discord-embed.png",
+        url: "/images/background-animation.gif",
         width: 1200,
         height: 630,
         alt: "ModdingStation - Premium Gaming Software",
@@ -124,6 +124,7 @@ export default function RootLayout({
         <meta property="discord:server" content="https://discord.gg/modstation" />
 
         {/* Preload critical resources */}
+        <link rel="preload" href="/images/background-animation.gif" as="image" />
         <link rel="preload" href="/images/background-animation.gif" as="image" />
 
         {/* DNS prefetch for external domains */}

@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     creator: "@ModdingStation",
     title: "ModdingStation - Premium Gaming Software",
     description: "🎮 Undetected Game Enhancements | 20,000+ Users | 99% Success Rate | 24/7 Support",
-    images: ["/images/favicon-source.png"],
+    images: ["/images/background-animation.gif"],
   },
   icons: {
     icon: [
@@ -124,8 +124,8 @@ export default function RootLayout({
         <meta property="discord:server" content="https://discord.gg/modstation" />
 
         {/* Preload critical resources */}
-        <link rel="preload" href="/images/favicon-source.png" as="image" />
-        <link rel="preload" href="/images/hero-background.png" as="image" />
+        <link rel="preload" href="/images/background-animation.gif" as="image" />
+        <link rel="preload" href="/images/background-animation.gif" as="image" />
 
         {/* DNS prefetch for external domains */}
         <link rel="dns-prefetch" href="//discord.gg" />

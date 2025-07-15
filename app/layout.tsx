@@ -125,7 +125,6 @@ export default function RootLayout({
 
         {/* Preload critical resources */}
         <link rel="preload" href="/images/background-animation.gif" as="image" />
-        <link rel="preload" href="/images/background-animation.gif" as="image" />
 
         {/* DNS prefetch for external domains */}
         <link rel="dns-prefetch" href="//discord.gg" />

@@ -2055,6 +2055,10 @@ export default function Page() {
                   <div className="text-lg font-semibold text-white">Month</div>
                   <div className="text-2xl font-bold text-orange-400">$60</div>
                 </div>
+				<div className="bg-gradient-to-br from-orange-900/20 to-red-900/20 border border-orange-500/30 rounded-lg p-4 text-center hover:border-orange-400/50 transition-colors">
+                  <div className="text-lg font-semibold text-white">Lifetime</div>
+                  <div className="text-2xl font-bold text-orange-400">$200</div>
+                </div>
               </div>
             </div>
 

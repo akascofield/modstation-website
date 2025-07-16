@@ -68,6 +68,12 @@ export default function Navbar() {
                 <span className="relative z-10">FAQ</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
+              <Link href="/blog">
+                <button className="relative p-3 text-left text-lg font-medium text-gray-300 hover:text-white transition-all duration-300 group rounded-lg">
+                  <span className="relative z-10">Blog</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </button>
+              </Link>
               <div className="flex flex-col gap-2 mt-6 pt-6 border-t border-blue-900/20">
                 <Button
                   asChild
@@ -137,6 +143,13 @@ export default function Navbar() {
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/20 to-purple-600/0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <div className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-500 group-hover:w-full group-hover:left-0 transition-all duration-300"></div>
           </button>
+          <Link href="/blog">
+            <button className="relative px-4 py-2 text-sm font-medium text-gray-300 hover:text-white transition-all duration-300 group">
+              <span className="relative z-10">Blog</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/20 to-purple-600/0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-500 group-hover:w-full group-hover:left-0 transition-all duration-300"></div>
+            </button>
+          </Link>
         </div>
 
         {/* Right Side Actions */}

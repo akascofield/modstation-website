@@ -1,4 +1,4 @@
-import { blogData } from "../../../lib/blog-data"
+import { blogData } from "../../../app/lib/blog-data"
 import BlogPostPageClient from "./BlogPostPageClient"
 
 // Static generation için gerekli

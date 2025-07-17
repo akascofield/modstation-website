@@ -6,7 +6,7 @@ import Navbar from "../../navbar"
 import { Calendar, User, Tag, Search, Filter } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { blogData, type BlogPost } from "../../lib/blog-data"
+import { blogData, type BlogPost } from "../../app/lib/blog-data"
 
 export default function BlogPageClient() {
   const [blogDataState, setBlogData] = useState<{ posts: BlogPost[]; categories: string[] }>({

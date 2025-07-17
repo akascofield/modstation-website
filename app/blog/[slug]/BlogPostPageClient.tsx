@@ -5,7 +5,7 @@ import Link from "next/link"
 import Navbar from "../../../navbar"
 import { Calendar, User, Tag, ArrowLeft, Share2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { blogData } from "../../../lib/blog-data"
+import { blogData } from "../../../app/lib/blog-data"
 
 export default function BlogPostPageClient({ params }: { params: { slug: string } }) {
   const [post, setPost] = useState<any | null>(null)

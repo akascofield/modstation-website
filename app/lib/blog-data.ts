@@ -283,3 +283,24 @@ Before installing any Valorant cheat, ensure your system meets these requirement
   ],
   categories: ["All", "News", "Updates", "Reselling", "Media Program", "Tutorials"],
 }
+
+export function getBlogPosts(): BlogPost[] {
+  return blogData.posts.filter(post => post.status === 'published');
+}
+
+export function getBlogPost(slug: string): BlogPost | undefined {
+  return blogData.posts.find(post => post.slug === slug && post.status === 'published');
+}
+
+export function getFeaturedPosts(): BlogPost[] {
+  return blogData.posts.filter(post => post.featured && post.status === 'published');
+}
+
+export function getPostsByCategory(category: string): BlogPost[] {
+  if (category === 'All') return getBlogPosts();
+  return blogData.posts.filter(post => post.category === category && post.status === 'published');
+}
+
+export function getCategories(): string[] {
+  return blogData.categories;
+}

@@ -1,0 +1,875 @@
+
+export default function CustomerPage() {
+  return (
+    <div dangerouslySetInnerHTML={{
+      __html: `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ModStation - Download</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Outfit:wght@600;700&display=swap" rel="stylesheet">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+  background-color: #0a0a0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0a0a0a;
+}
+
+.container {
+  background: rgba(13, 13, 13, 0.95);
+  width: 100%;
+  max-width: 450px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  padding: 40px;
+  text-align: center;
+  position: relative;
+  border: 1px solid #1a1a1a;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  margin-bottom: 30px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #00fff7;
+  letter-spacing: -0.02em;
+  position: relative;
+  display: inline-block;
+}
+
+.logo::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #00fff7, transparent);
+}
+
+h1 {
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+h2 {
+  font-size: 1.1rem;
+  color: #8899bb;
+  margin-bottom: 30px;
+  font-weight: 400;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #00fff7;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 15px;
+  background: rgba(20, 20, 35, 0.5);
+  border: 1px solid #00fff7;
+  border-radius: 8px;
+  color: #00fff7;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #00fff7;
+  box-shadow: 0 0 0 2px rgba(0, 255, 247, 0.25);
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.action-button {
+  padding: 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #fff;
+  background: #1a1f3c;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.action-button:hover {
+  background: linear-gradient(to right, #00fff7, #9400ff);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 255, 247, 0.3);
+}
+
+.action-button:disabled {
+  background: #2a3a58;
+  transform: none;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.exit-button {
+  padding: 14px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background: transparent;
+  border: 1px solid #1a1a30;
+  border-radius: 8px;
+  color: #8899bb;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.exit-button:hover {
+  border-color: #00fff7;
+  color: #fff;
+}
+
+.membership-info {
+  margin-top: 30px;
+  padding: 15px;
+  background-color: rgba(20, 20, 20, 0.3);
+  border-radius: 8px;
+  color: #8899bb;
+  font-size: 0.9rem;
+  border-left: 3px solid #00fff7;
+}
+
+.user-info-item {
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+
+.user-info-label {
+  color: #7788aa;
+  font-weight: 500;
+}
+
+.user-info-value {
+  color: #99aacc;
+  font-weight: 600;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: #0a0a15;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00fff7;
+  border-radius: 4px;
+}
+
+::selection {
+  background: rgba(0, 255, 247, 0.2);
+  color: #ffffff;
+}
+
+.status-message {
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  display: none;
+}
+
+.status-success {
+  background-color: rgba(0, 100, 0, 0.2);
+  color: #99cc99;
+  border-left: 3px solid #00cc00;
+  display: block;
+}
+
+.status-error {
+  background-color: rgba(100, 0, 0, 0.2);
+  color: #cc9999;
+  border-left: 3px solid #cc0000;
+  display: block;
+}
+
+.status-warning {
+  background-color: rgba(100, 80, 0, 0.2);
+  color: #ccbb99;
+  border-left: 3px solid #ccaa00;
+  display: block;
+}
+
+.loader {
+  display: none;
+  margin: 15px auto;
+  border: 3px solid rgba(0, 255, 247, 0.1);
+  border-radius: 50%;
+  border-top: 3px solid #00fff7;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.recaptcha-container {
+  margin: 25px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.recaptcha-dark-theme {
+  transform: scale(0.9);
+  transform-origin: center;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(20, 20, 35, 0.5);
+  padding: 5px;
+  border: 1px solid #00fff7;
+}
+
+#loginView, #userInfoView {
+  width: 100%;
+}
+
+#userInfoView {
+  display: none;
+}
+
+.splash-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.splash-content {
+  background: rgba(15, 15, 15, 0.95);
+  max-width: 500px;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  border: 2px solid #00fff7;
+  box-shadow: 0 0 30px rgba(0, 255, 247, 0.3);
+}
+
+.splash-icon {
+  color: #00fff7;
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.splash-title {
+  color: #ffffff;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.splash-message {
+  color: #8899bb;
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+.splash-button {
+  padding: 12px 25px;
+  background: linear-gradient(to right, #00fff7, #9400ff);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.splash-button:hover {
+  background: linear-gradient(to right, #9400ff, #00fff7);
+  transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+  </style>
+</head>
+<body>
+  <canvas id="particles-js"></canvas>
+  <div class="container">
+    <div class="logo">
+      ModStation
+    </div>
+    
+    <h2>Precision Cheats. Premium Protection.</h2>
+    
+    <!-- Login View -->
+    <div id="loginView">
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="licenseKey" class="form-label">License Key</label>
+          <input type="text" id="licenseKey" class="form-input" placeholder="Enter your license key here" required>
+        </div>
+        
+        <div class="recaptcha-container">
+          <div class="recaptcha-dark-theme">
+            <div id="loginCaptcha"></div>
+          </div>
+        </div>
+        
+        <div class="button-container">
+          <button type="submit" id="loginButton" class="action-button">Log In</button>
+          <button type="button" id="exitLoginButton" class="exit-button">Exit</button>
+        </div>
+      </form>
+    </div>
+    
+    <!-- User Info View -->
+    <div id="userInfoView">
+      <div class="membership-info">
+        <div class="user-info-item">
+          <span class="user-info-label">License Status:</span>
+          <span class="user-info-value" id="licenseStatus">Active</span>
+        </div>
+        <div class="user-info-item">
+          <span class="user-info-label">Subscription:</span>
+          <span class="user-info-value" id="subscriptionType">Premium</span>
+        </div>
+        <div class="user-info-item">
+          <span class="user-info-label">Time Remaining:</span>
+          <span class="user-info-value" id="remainingTime">Loading...</span>
+        </div>
+      </div>
+      
+      <div class="recaptcha-container">
+        <div class="recaptcha-dark-theme">
+          <div id="downloadCaptcha"></div>
+        </div>
+      </div>
+      
+      <div class="button-container">
+        <button type="button" id="downloadButton" class="action-button">Download Software</button>
+        <button type="button" id="exitUserButton" class="exit-button">Log Out</button>
+      </div>
+    </div>
+    
+    <!-- Loader animation -->
+    <div id="loader" class="loader"></div>
+    
+    <!-- Status message container -->
+    <div id="statusMessage" class="status-message"></div>
+    
+    <!-- Splash Warning Overlay -->
+    <div id="splashWarning" class="splash-overlay">
+      <div class="splash-content">
+        <div class="splash-icon">⚠️</div>
+        <h2 class="splash-title">NOTICE</h2>
+        <p class="splash-message" id="splashMessage">Download is in progress. Please do not refresh the page or press F5 as this will interrupt your download.</p>
+        <button class="splash-button" id="splashCloseButton">I Understand</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Particle Effect
+    function initParticles() {
+      const canvas = document.getElementById('particles-js');
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      
+      // Set canvas size
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      
+      // Particle class
+      class Particle {
+        constructor() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.vx = (Math.random() - 0.5) * 0.5;
+          this.vy = (Math.random() - 0.5) * 0.5;
+          this.size = Math.random() * 2 + 0.5;
+          this.alpha = Math.random() * 0.5 + 0.2;
+        }
+        
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          
+          // Wrap around edges
+          if (this.x < 0) this.x = canvas.width;
+          if (this.x > canvas.width) this.x = 0;
+          if (this.y < 0) this.y = canvas.height;
+          if (this.y > canvas.height) this.y = 0;
+        }
+        
+        draw() {
+          ctx.fillStyle = `rgba(46, 255, 246, ${this.alpha})`;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+      
+      // Create particles
+      for (let i = 0; i < 50; i++) {
+        particles.push(new Particle());
+      }
+      
+      // Animation loop
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        particles.forEach(particle => {
+          particle.update();
+          particle.draw();
+        });
+        
+        // Draw connections
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            
+            if (distance < 150) {
+              ctx.beginPath();
+              ctx.strokeStyle = `rgba(211, 47, 47, ${0.1 * (1 - distance / 150)})`;
+              ctx.lineWidth = 0.5;
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.stroke();
+            }
+          }
+        }
+        
+        requestAnimationFrame(animate);
+      }
+      
+      animate();
+      
+      // Resize handler
+      window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      });
+    }
+    
+    // Initialize particles when page loads
+    document.addEventListener('DOMContentLoaded', initParticles);
+  
+    // Constants
+    const API_URL = "https://goauth.pro/api";
+    
+    // DOM Elements
+    const loginView = document.getElementById('loginView');
+    const userInfoView = document.getElementById('userInfoView');
+    const loginForm = document.getElementById('loginForm');
+    const licenseKeyInput = document.getElementById('licenseKey');
+    const loginButton = document.getElementById('loginButton');
+    const downloadButton = document.getElementById('downloadButton');
+    const exitLoginButton = document.getElementById('exitLoginButton');
+    const exitUserButton = document.getElementById('exitUserButton');
+    const statusMessage = document.getElementById('statusMessage');
+    const licenseStatus = document.getElementById('licenseStatus');
+    const subscriptionType = document.getElementById('subscriptionType');
+    const remainingTime = document.getElementById('remainingTime');
+    const loader = document.getElementById('loader');
+    const splashWarning = document.getElementById('splashWarning');
+    const splashMessage = document.getElementById('splashMessage');
+    const splashCloseButton = document.getElementById('splashCloseButton');
+    
+    // Variables
+    let currentLicenseKey = '';
+    let loginWidgetId = null;
+    let downloadWidgetId = null;
+    let isDownloadInProgress = false;
+    
+    // Function to show splash warning
+    function showSplashWarning(message) {
+      // Update the message
+      splashMessage.textContent = message;
+      
+      // Display the splash overlay
+      splashWarning.style.display = 'flex';
+      
+      // Attach event listener to close button
+      splashCloseButton.addEventListener('click', closeSplashWarning);
+    }
+    
+    // Function to close splash warning
+    function closeSplashWarning() {
+      splashWarning.style.display = 'none';
+    }
+    
+    // Prevent page refresh (F5) and browser refresh button
+    function disableF5(e) {
+      if ((e.which || e.keyCode) == 116 || // F5 key
+          ((e.which || e.keyCode) == 82 && e.ctrlKey)) { // Ctrl+R
+        if (isDownloadInProgress) {
+          e.preventDefault();
+          
+          // Show splash warning instead of regular warning
+          showSplashWarning('Download is in progress. Refreshing the page will interrupt your download and you will need to start over. Please wait for the download to complete.');
+        }
+      }
+    }
+    
+    // Add event listener for page refresh attempts
+    document.addEventListener("keydown", disableF5);
+    
+    // Handle the beforeunload event to prevent closing/refreshing the page
+    window.addEventListener('beforeunload', function(e) {
+      if (isDownloadInProgress) {
+        // Standard message for modern browsers
+        const message = 'Download is in progress. If you refresh or leave this page, your download will be canceled.';
+        e.preventDefault();
+        e.returnValue = message; // For older browsers
+        return message;
+      }
+    });
+    
+    // Initialize reCAPTCHA widgets after the page is fully loaded
+    window.onload = function() {
+      // Initialize login captcha
+      if (document.getElementById('loginCaptcha')) {
+        loginWidgetId = grecaptcha.render('loginCaptcha', {
+          'sitekey': '6LdPw_EqAAAAAJ1y6QJ6ERx00rCLHJxqi0WSeLdv',
+          'theme': 'dark'
+        });
+      } else {
+        console.error('Login captcha element not found');
+      }
+      
+      // Initialize splash warning close button
+      splashCloseButton.addEventListener('click', closeSplashWarning);
+    };
+    
+    // Login form submission
+    loginForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get the license key
+      const licenseKey = licenseKeyInput.value.trim();
+      
+      // Validate license key
+      if (!licenseKey) {
+        showError('Please enter a valid license key');
+        return;
+      }
+      
+      // Verify reCAPTCHA
+      const recaptchaResponse = grecaptcha.getResponse(loginWidgetId);
+      if (!recaptchaResponse) {
+        showError('Please complete the reCAPTCHA verification');
+        return;
+      }
+      
+      // Update UI to show loading state
+      loginButton.disabled = true;
+      statusMessage.className = 'status-message';
+      statusMessage.textContent = 'Verifying license...';
+      statusMessage.style.display = 'block';
+      loader.style.display = 'block';
+      
+      // Verify membership
+      verifyMembership(licenseKey, recaptchaResponse);
+    });
+    
+    // Download button click event
+    downloadButton.addEventListener('click', function() {
+      // Check if download captcha exists and is rendered
+      if (!downloadWidgetId) {
+        showError('Please wait for the verification to load and complete the reCAPTCHA');
+        return;
+      }
+      
+      // Get reCAPTCHA response
+      const recaptchaResponse = grecaptcha.getResponse(downloadWidgetId);
+      if (!recaptchaResponse) {
+        showError('Please complete the reCAPTCHA verification before downloading');
+        return;
+      }
+      
+      // Update UI to show loading state
+      downloadButton.disabled = true;
+      loader.style.display = 'block';
+      
+      // Show download warning and start download
+      showWarning('Build process started. This may take up to 2 minutes to complete. Please do not press any buttons or close this page during the download.');
+      
+      // Set download in progress flag
+      isDownloadInProgress = true;
+      
+      // Start download
+      downloadSoftware(currentLicenseKey, recaptchaResponse);
+    });
+    
+    // Exit buttons
+    exitLoginButton.addEventListener('click', closeWindow);
+    exitUserButton.addEventListener('click', function() {
+      // Check if download is in progress
+      if (isDownloadInProgress) {
+        showError('Download is in progress. Please wait for it to complete before logging out.');
+        return;
+      }
+      
+      // Reset everything and go back to login view
+      currentLicenseKey = '';
+      switchToLoginView();
+      resetForm();
+    });
+    
+    // Function to verify membership
+ function verifyMembership(licenseKey, recaptchaResponse) {
+      fetch(`${API_URL}/membership/${encodeURIComponent(licenseKey)}/${encodeURIComponent(recaptchaResponse)}`)
+        .then(response => response.json())
+        .then(data => {
+          if (data.status === 'success' && data.hasOwnProperty('remainingTime')) {
+            // Successful verification
+            currentLicenseKey = licenseKey;
+            
+            // Update user info
+            updateUserInfo(data);
+            
+            // Switch to user info view
+            switchToUserInfoView();
+            
+            // Show success message
+            showSuccess('Login successful!');
+          } else {
+            // Failed verification
+            showError(data.message || 'Failed to verify license');
+            loginButton.disabled = false;
+          }
+          loader.style.display = 'none';
+          grecaptcha.reset(loginWidgetId);
+        })
+        .catch(error => {
+          showError('Network error. Please check your connection and try again.');
+          loginButton.disabled = false;
+          loader.style.display = 'none';
+          grecaptcha.reset(loginWidgetId);
+        });
+    }
+    
+    // Function to download the software
+  function downloadSoftware(licenseKey, recaptchaResponse) {
+      // Set download in progress flag
+      isDownloadInProgress = true;
+      
+      // Show initial splash warning
+      showSplashWarning('Build process started. This may take up to 5 minutes to complete. Please do not refresh the page or press F5 as this will interrupt your download.');
+      
+      // Create a hidden iframe for background download instead of opening in a new tab
+      const downloadFrame = document.createElement('iframe');
+      downloadFrame.style.display = 'none';
+      document.body.appendChild(downloadFrame);
+      
+      // Create the download URL
+      const downloadUrl = `${API_URL}/download/${encodeURIComponent(licenseKey)}/${encodeURIComponent(recaptchaResponse)}`;
+      
+      // Set the iframe source to the download URL
+      downloadFrame.src = downloadUrl;
+      
+      // Lock the download button for 5 minutes
+      downloadButton.disabled = true;
+      
+      // Show warning message about the 5-minute build time
+      showWarning('Build process started. This may take up to 5 minutes to complete. Please do not press any buttons or close this page during the download.');
+      
+      // Set a countdown timer for 5 minutes
+      let timeLeft = 300; // 5 minutes in seconds
+      const countdownInterval = setInterval(function() {
+        timeLeft--;
+        
+        // Update the warning message with the time remaining
+        if (timeLeft > 0) {
+          showWarning(`Build process in progress. Please wait ${Math.floor(timeLeft / 60)}:${(timeLeft % 60).toString().padStart(2, '0')} before interacting with the page.`);
+        } else {
+          // When the timer is done, clear the interval and update UI
+          clearInterval(countdownInterval);
+          downloadButton.disabled = false;
+          isDownloadInProgress = false;
+          showSuccess('Download complete! If you did not receive the file, please try again.');
+          
+          // Clean up the iframe
+          document.body.removeChild(downloadFrame);
+          
+          // Reset the reCAPTCHA
+          grecaptcha.reset(downloadWidgetId);
+        }
+      }, 1000);
+    }
+   
+    // Function to update user info display
+    function updateUserInfo(data) {
+      // Format remaining time
+      let timeDisplay = 'Unknown';
+      
+      if (data.remainingTime) {
+        // If remainingTime is a Unix timestamp, convert to remaining time
+        const currentTime = Math.floor(Date.now() / 1000);
+        let remainingSeconds;
+        
+        // The remainingTime seems to be the expiration timestamp
+        if (data.remainingTime > 1000000000) { // This is likely a Unix timestamp
+          remainingSeconds = data.remainingTime - currentTime;
+        } else {
+          remainingSeconds = data.remainingTime;
+        }
+        
+        // Check if remaining time is negative (expired)
+        if (remainingSeconds <= 0) {
+          timeDisplay = 'EXPIRED';
+        } else if (remainingSeconds > 94608000) { // More than 3 years (3 * 365 * 24 * 60 * 60)
+          timeDisplay = 'LIFETIME';
+        } else {
+          // Calculate time components
+          const days = Math.floor(remainingSeconds / 86400);
+          const hours = Math.floor((remainingSeconds % 86400) / 3600);
+          const minutes = Math.floor((remainingSeconds % 3600) / 60);
+          
+          // Format the time string
+          if (days > 0) {
+            timeDisplay = `${days} days, ${hours} hours, ${minutes} minutes`;
+          } else if (hours > 0) {
+            timeDisplay = `${hours} hours, ${minutes} minutes`;
+          } else {
+            timeDisplay = `${minutes} minutes`;
+          }
+        }
+      }
+      
+      // Update the display elements
+      licenseStatus.textContent = 'Active';
+      subscriptionType.textContent = 'Premium';
+      remainingTime.textContent = timeDisplay;
+}
+    
+    // Function to switch to user info view
+    function switchToUserInfoView() {
+      loginView.style.display = 'none';
+      userInfoView.style.display = 'block';
+      
+      // Initialize download captcha if not already done
+      if (downloadWidgetId === null) {
+        // Make sure to wait a bit for the DOM to update
+        setTimeout(function() {
+          if (document.getElementById('downloadCaptcha')) {
+            downloadWidgetId = grecaptcha.render('downloadCaptcha', {
+              'sitekey': '6LdPw_EqAAAAAJ1y6QJ6ERx00rCLHJxqi0WSeLdv',
+              'theme': 'dark'
+            });
+          } else {
+            console.error('Download captcha element not found');
+          }
+        }, 100);
+      }
+    }
+    
+    // Function to switch to login view
+    function switchToLoginView() {
+      userInfoView.style.display = 'none';
+      loginView.style.display = 'block';
+    }
+    
+    // Function to show success message
+    function showSuccess(message) {
+      statusMessage.textContent = message;
+      statusMessage.className = 'status-message status-success';
+      statusMessage.style.display = 'block';
+    }
+    
+    // Function to show error message
+    function showError(message) {
+      statusMessage.textContent = 'Error: ' + message;
+      statusMessage.className = 'status-message status-error';
+      statusMessage.style.display = 'block';
+    }
+    
+    // Function to show warning message
+    function showWarning(message) {
+      statusMessage.textContent = 'Notice: ' + message;
+      statusMessage.className = 'status-message status-warning';
+      statusMessage.style.display = 'block';
+      
+      // Also show the loader during warnings
+      loader.style.display = 'block';
+    }
+    
+    // Function to close the window
+    function closeWindow() {
+      window.close();
+      // Fallback if window.close() doesn't work
+      if (!window.closed) {
+        window.location.href = 'about:blank';
+      }
+    }
+    
+    // Function to reset form
+    function resetForm() {
+      licenseKeyInput.value = '';
+      loginButton.disabled = false;
+      statusMessage.style.display = 'none';
+      if (loginWidgetId !== null) {
+        grecaptcha.reset(loginWidgetId);
+      }
+    }
+  </script>
+</body>
+</html>
+`
+    }} />
+  );
+}

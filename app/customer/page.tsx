@@ -1,8 +1,8 @@
-
 export default function CustomerPage() {
   return (
-    <div dangerouslySetInnerHTML={{
-      __html: `<!DOCTYPE html>
+    <div
+      dangerouslySetInnerHTML={{
+        __html: `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -12,7 +12,6 @@ export default function CustomerPage() {
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
 html, body {
   height: 100%;
   font-family: 'Inter', sans-serif;
@@ -22,7 +21,6 @@ html, body {
   justify-content: center;
   background: #0a0a0a;
 }
-
 .container {
   background: rgba(13, 13, 13, 0.95);
   width: 100%;
@@ -36,7 +34,6 @@ html, body {
   overflow: hidden;
   backdrop-filter: blur(10px);
 }
-
 .logo {
   margin-bottom: 30px;
   font-family: 'Outfit', sans-serif;
@@ -47,7 +44,6 @@ html, body {
   position: relative;
   display: inline-block;
 }
-
 .logo::after {
   content: '';
   position: absolute;
@@ -57,7 +53,6 @@ html, body {
   height: 2px;
   background: linear-gradient(90deg, #00fff7, transparent);
 }
-
 h1 {
   font-size: 2rem;
   color: #ffffff;
@@ -65,19 +60,16 @@ h1 {
   font-weight: 700;
   letter-spacing: 0.5px;
 }
-
 h2 {
   font-size: 1.1rem;
   color: #8899bb;
   margin-bottom: 30px;
   font-weight: 400;
 }
-
 .form-group {
   margin-bottom: 20px;
   text-align: left;
 }
-
 .form-label {
   display: block;
   margin-bottom: 8px;
@@ -85,7 +77,6 @@ h2 {
   font-size: 0.9rem;
   font-weight: 500;
 }
-
 .form-input {
   width: 100%;
   padding: 12px 15px;
@@ -96,20 +87,17 @@ h2 {
   font-size: 1rem;
   transition: all 0.2s ease;
 }
-
 .form-input:focus {
   outline: none;
   border-color: #00fff7;
   box-shadow: 0 0 0 2px rgba(0, 255, 247, 0.25);
 }
-
 .button-container {
   display: flex;
   flex-direction: column;
   gap: 15px;
   margin-top: 25px;
 }
-
 .action-button {
   padding: 16px;
   font-size: 1rem;
@@ -123,20 +111,17 @@ h2 {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
-
 .action-button:hover {
   background: linear-gradient(to right, #00fff7, #9400ff);
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(0, 255, 247, 0.3);
 }
-
 .action-button:disabled {
   background: #2a3a58;
   transform: none;
   box-shadow: none;
   cursor: not-allowed;
 }
-
 .exit-button {
   padding: 14px;
   font-size: 0.9rem;
@@ -150,12 +135,10 @@ h2 {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
-
 .exit-button:hover {
   border-color: #00fff7;
   color: #fff;
 }
-
 .membership-info {
   margin-top: 30px;
   padding: 15px;
@@ -165,39 +148,32 @@ h2 {
   font-size: 0.9rem;
   border-left: 3px solid #00fff7;
 }
-
 .user-info-item {
   margin-bottom: 8px;
   display: flex;
   justify-content: space-between;
   font-size: 0.9rem;
 }
-
 .user-info-label {
   color: #7788aa;
   font-weight: 500;
 }
-
 .user-info-value {
   color: #99aacc;
   font-weight: 600;
 }
-
 ::-webkit-scrollbar {
   width: 8px;
   background: #0a0a15;
 }
-
 ::-webkit-scrollbar-thumb {
   background: #00fff7;
   border-radius: 4px;
 }
-
 ::selection {
   background: rgba(0, 255, 247, 0.2);
   color: #ffffff;
 }
-
 .status-message {
   margin-top: 20px;
   padding: 10px;
@@ -205,28 +181,24 @@ h2 {
   font-size: 0.9rem;
   display: none;
 }
-
 .status-success {
   background-color: rgba(0, 100, 0, 0.2);
   color: #99cc99;
   border-left: 3px solid #00cc00;
   display: block;
 }
-
 .status-error {
   background-color: rgba(100, 0, 0, 0.2);
   color: #cc9999;
   border-left: 3px solid #cc0000;
   display: block;
 }
-
 .status-warning {
   background-color: rgba(100, 80, 0, 0.2);
   color: #ccbb99;
   border-left: 3px solid #ccaa00;
   display: block;
 }
-
 .loader {
   display: none;
   margin: 15px auto;
@@ -237,18 +209,15 @@ h2 {
   height: 30px;
   animation: spin 1s linear infinite;
 }
-
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
-
 .recaptcha-container {
   margin: 25px 0;
   display: flex;
   justify-content: center;
 }
-
 .recaptcha-dark-theme {
   transform: scale(0.9);
   transform-origin: center;
@@ -258,15 +227,12 @@ h2 {
   padding: 5px;
   border: 1px solid #00fff7;
 }
-
 #loginView, #userInfoView {
   width: 100%;
 }
-
 #userInfoView {
   display: none;
 }
-
 .splash-overlay {
   display: none;
   position: fixed;
@@ -280,7 +246,6 @@ h2 {
   align-items: center;
   animation: fadeIn 0.3s ease-in-out;
 }
-
 .splash-content {
   background: rgba(15, 15, 15, 0.95);
   max-width: 500px;
@@ -290,27 +255,23 @@ h2 {
   border: 2px solid #00fff7;
   box-shadow: 0 0 30px rgba(0, 255, 247, 0.3);
 }
-
 .splash-icon {
   color: #00fff7;
   font-size: 3rem;
   margin-bottom: 20px;
 }
-
 .splash-title {
   color: #ffffff;
   font-size: 1.8rem;
   margin-bottom: 15px;
   font-weight: 700;
 }
-
 .splash-message {
   color: #8899bb;
   font-size: 1.1rem;
   margin-bottom: 25px;
   line-height: 1.5;
 }
-
 .splash-button {
   padding: 12px 25px;
   background: linear-gradient(to right, #00fff7, #9400ff);
@@ -322,17 +283,14 @@ h2 {
   cursor: pointer;
   transition: all 0.2s ease;
 }
-
 .splash-button:hover {
   background: linear-gradient(to right, #9400ff, #00fff7);
   transform: translateY(-2px);
 }
-
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
-
 #particles-js {
   position: fixed;
   width: 100%;
@@ -341,7 +299,6 @@ h2 {
   left: 0;
   z-index: -1;
 }
-
   </style>
 </head>
 <body>
@@ -419,7 +376,7 @@ h2 {
       </div>
     </div>
   </div>
-
+  
   <script>
     // Particle Effect
     function initParticles() {
@@ -454,7 +411,7 @@ h2 {
         }
         
         draw() {
-          ctx.fillStyle = `rgba(46, 255, 246, ${this.alpha})`;
+          ctx.fillStyle = \`rgba(46, 255, 246, \${this.alpha})\`;
           ctx.beginPath();
           ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
           ctx.fill();
@@ -484,7 +441,7 @@ h2 {
             
             if (distance < 150) {
               ctx.beginPath();
-              ctx.strokeStyle = `rgba(211, 47, 47, ${0.1 * (1 - distance / 150)})`;
+              ctx.strokeStyle = \`rgba(211, 47, 47, \${0.1 * (1 - distance / 150)})\`;
               ctx.lineWidth = 0.5;
               ctx.moveTo(particles[i].x, particles[i].y);
               ctx.lineTo(particles[j].x, particles[j].y);
@@ -507,7 +464,7 @@ h2 {
     
     // Initialize particles when page loads
     document.addEventListener('DOMContentLoaded', initParticles);
-  
+
     // Constants
     const API_URL = "https://goauth.pro/api";
     
@@ -671,8 +628,8 @@ h2 {
     });
     
     // Function to verify membership
- function verifyMembership(licenseKey, recaptchaResponse) {
-      fetch(`${API_URL}/membership/${encodeURIComponent(licenseKey)}/${encodeURIComponent(recaptchaResponse)}`)
+    function verifyMembership(licenseKey, recaptchaResponse) {
+      fetch(\`\${API_URL}/membership/\${encodeURIComponent(licenseKey)}/\${encodeURIComponent(recaptchaResponse)}\`)
         .then(response => response.json())
         .then(data => {
           if (data.status === 'success' && data.hasOwnProperty('remainingTime')) {
@@ -704,7 +661,7 @@ h2 {
     }
     
     // Function to download the software
-  function downloadSoftware(licenseKey, recaptchaResponse) {
+    function downloadSoftware(licenseKey, recaptchaResponse) {
       // Set download in progress flag
       isDownloadInProgress = true;
       
@@ -717,7 +674,7 @@ h2 {
       document.body.appendChild(downloadFrame);
       
       // Create the download URL
-      const downloadUrl = `${API_URL}/download/${encodeURIComponent(licenseKey)}/${encodeURIComponent(recaptchaResponse)}`;
+      const downloadUrl = \`\${API_URL}/download/\${encodeURIComponent(licenseKey)}/\${encodeURIComponent(recaptchaResponse)}\`;
       
       // Set the iframe source to the download URL
       downloadFrame.src = downloadUrl;
@@ -735,7 +692,7 @@ h2 {
         
         // Update the warning message with the time remaining
         if (timeLeft > 0) {
-          showWarning(`Build process in progress. Please wait ${Math.floor(timeLeft / 60)}:${(timeLeft % 60).toString().padStart(2, '0')} before interacting with the page.`);
+          showWarning(\`Build process in progress. Please wait \${Math.floor(timeLeft / 60)}:\${(timeLeft % 60).toString().padStart(2, '0')} before interacting with the page.\`);
         } else {
           // When the timer is done, clear the interval and update UI
           clearInterval(countdownInterval);
@@ -751,7 +708,7 @@ h2 {
         }
       }, 1000);
     }
-   
+    
     // Function to update user info display
     function updateUserInfo(data) {
       // Format remaining time
@@ -782,11 +739,11 @@ h2 {
           
           // Format the time string
           if (days > 0) {
-            timeDisplay = `${days} days, ${hours} hours, ${minutes} minutes`;
+            timeDisplay = \`\${days} days, \${hours} hours, \${minutes} minutes\`;
           } else if (hours > 0) {
-            timeDisplay = `${hours} hours, ${minutes} minutes`;
+            timeDisplay = \`\${hours} hours, \${minutes} minutes\`;
           } else {
-            timeDisplay = `${minutes} minutes`;
+            timeDisplay = \`\${minutes} minutes\`;
           }
         }
       }
@@ -795,7 +752,7 @@ h2 {
       licenseStatus.textContent = 'Active';
       subscriptionType.textContent = 'Premium';
       remainingTime.textContent = timeDisplay;
-}
+    }
     
     // Function to switch to user info view
     function switchToUserInfoView() {
@@ -868,8 +825,8 @@ h2 {
     }
   </script>
 </body>
-</html>
-`
-    }} />
-  );
+</html>`,
+      }}
+    />
+  )
 }

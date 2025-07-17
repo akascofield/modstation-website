@@ -10,6 +10,11 @@ const nextConfig = {
   },
   images: {
     unoptimized: true
+  },
+  // Static export için gerekli ayarlar
+  generateStaticParams: true,
+  experimental: {
+    missingSuspenseWithCSRBailout: false,
   }
 }
 

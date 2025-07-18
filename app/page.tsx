@@ -1538,9 +1538,10 @@ export default function Page() {
                   </AccordionTrigger>
                   <AccordionContent className="px-4 pb-4">
                     <ul className="space-y-2 text-gray-300">
-                      <li>• EVENT LOGGER | You can Log All Your Events</li>
-                      <li>• RESOURCE STOPPER | You can stop any Resource/Plugin</li>
-                      <li>• EXECUTOR | Execute any lua with that</li>
+                      <li>• Event Logger</li>
+                      <li>• Resource Stopper</li>
+                      <li>• Executor</li>
+					  <li>• Server Dumper</li>
                     </ul>
                   </AccordionContent>
                 </AccordionItem>
@@ -1565,7 +1566,7 @@ export default function Page() {
                 </div>
                 <div className="bg-gradient-to-br from-orange-900/20 to-green-900/20 border border-orange-500/30 rounded-lg p-4 text-center hover:border-orange-400/50 transition-colors">
                   <div className="text-lg font-semibold text-white">Lifetime</div>
-                  <div className="text-2xl font-bold text-orange-400">$150</div>
+                  <div className="text-2xl font-bold text-orange-400">$80</div>
                 </div>
               </div>
             </div>
